@@ -1,0 +1,22 @@
+{
+  "name": "learn-watson",
+  "version": "1.0.0",
+  "description": "研修用",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ninomae-makoto/learn-watson.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ninomae-makoto/learn-watson/issues"
+  },
+  "homepage": "https://github.com/ninomae-makoto/learn-watson#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
