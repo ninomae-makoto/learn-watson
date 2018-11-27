@@ -1,0 +1,11 @@
+node_modules
+scripts/
+*.ts
+*.js.map
+test/
+snippets/
+devtools/
+.node_modules
+.vscode/
+.nyc_output
+*.vue
