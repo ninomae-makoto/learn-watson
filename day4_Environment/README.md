@@ -97,3 +97,72 @@ node .\day4_Environment\src\app.js
 
 http://localhost:3000  
 へアクセス
+
+# Bluemixへデプロイしてみる
+
+1. アカウント作成（ 無料アカウントあり）
+https://console.bluemix.net
+
+2. Bluemix上にアプリケーションを作成
+ダッシュボードへアクセス
+https://console.bluemix.net/dashboard
+
+カタログからSDK for Node.js を選択
+
+![カタログ](cap/1.PNG)
+
+
+![カタログ SDK for Node.js](cap/2.PNG)
+
+アプリ名に任意の名前を入れて作成
+
+
+3. ターミナルからログイン
+
+```
+cf login -a https://api.ng.bluemix.net/ -o [組織名] -s [スペース名]
+```
+
+組織名はダッシュボードの右上 → プロフィール → Cloud Foundry 組織
+から確認可能
+
+スペース名はアプリ作成時のスペース名
+
+メールアドレスとパスワードを聞かれる。アカウント情報を入力。
+以下のようにまとめることも可能。
+
+```
+cf login -a https://api.ng.bluemix.net/ -o [組織名] -s [スペース名] -u xxxx@gmail.com -p xxxxxx
+```
+
+4. アプリケーションのデプロイ
+
+manifest.yml のあるディレクトリ（ない場合プロジェクトルートに作成）でこのコマンドを実行。
+
+```
+cf push
+```
+
+manifest.yml を元にデプロイされる。
+
+```
+applications:
+- path: .
+  memory: 256M
+  instances: 1
+  name: watson-nodetest00001
+  routes:
+  - route: watson-nodetest00001.mybluemix.net
+  disk_quota: 1024M
+```
+
+path: デプロイ対象ディレクトリ
+memory: アプリケーション実行時のメモリ。この値で上書きされる。
+instance: インスタンス数
+name: カタログからアプリケーションを作成したときの名前と一致させること。
+route: アプリケーションを参照するためのURL。基本 上記で指定したname + .mybluemix.net を指定
+
+5. 動作確認
+
+https://xxxx.mybluemix.net
+へアクセス
