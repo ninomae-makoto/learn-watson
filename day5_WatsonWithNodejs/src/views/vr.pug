@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  script(src="./javascripts/vr.js")
+  h1= title
+  input#imageFile(type="file")
+  div
+    button(type="button" onclick="vr()") 画像認識
+  div
+    p 結果
+    textarea#result(name="", cols="100", rows="30")
