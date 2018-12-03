@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  script(src="./javascripts/bot.js")
+  h1= title
+  input#question(type="text")
+  div
+    button(type="button" onclick="sendQuestion()") 質問
+  div
+    p 結果
+    textarea#answer(name="", cols="100", rows="10")
+  input#context(type="hidden", name="" value=context)

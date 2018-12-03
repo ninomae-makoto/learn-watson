@@ -6,7 +6,7 @@ var bodyParser = require("body-parser");
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/vr');
+var vrRouter = require('./routes/vr');
 
 var app = express();
 
@@ -30,7 +30,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/vr', usersRouter);
+app.use('/vr', vrRouter);
+app.use('/bot', require('./routes/bot'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

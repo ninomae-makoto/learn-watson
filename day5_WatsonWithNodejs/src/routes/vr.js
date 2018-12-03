@@ -20,7 +20,7 @@ router.post('/', function (req, res, next) {
       var VisualRecognitionV3 = require('watson-developer-cloud/visual-recognition/v3');
       var fs = require('fs');
 
-      // ここにapikeyを追加
+      // ここにapikeyを追加 実際はソースに直書きせず別で管理しないといけない
       var apikey = ""
       var visualRecognition = new VisualRecognitionV3({
         version: '2018-03-19',
@@ -35,7 +35,7 @@ router.post('/', function (req, res, next) {
         images_file: images_file,
         owners: owners,
         threshold: threshold,
-        accept_language: "ja"
+        // accept_language: "ja"
       };
 
       visualRecognition.classify(params, function (err, response) {
