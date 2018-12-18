@@ -30,26 +30,31 @@ function callAssistant(question, context, onDone) {
     
     var assistant = new AssistantV1({
         username: '6dc420bb-2ae1-411b-83f2-3f62dabfcf4b',
-        password: 'xxxxxxxxxxx',
+        password: 'K5nkYvCjQAfR',
         url: 'https://gateway.watsonplatform.net/assistant/api/',
         version: '2018-02-16'
         });
+    // 新バージョン
+    // var assistant = new watson.AssistantV1({
+    //     iam_apikey: '{apikey}',
+    //     version: '2018-09-20'
+    // });
     
-        assistant.message(
-            {
-                input: { text: question },
-                workspace_id: 'dd3e7ea4-8845-458b-8080-7e703e8a13f8',
-                context: context
-            },
-            function(err, response) {
-                if (err) {
-                    console.error(err);
-                } else {
-                    console.log(JSON.stringify(response, null, 2));
-                    onDone(response)
-                }
+    assistant.message(
+        {
+            input: { text: question },
+            workspace_id: 'dd3e7ea4-8845-458b-8080-7e703e8a13f8',
+            context: context
+        },
+        function(err, response) {
+            if (err) {
+                console.error(err);
+            } else {
+                console.log(JSON.stringify(response, null, 2));
+                onDone(response)
             }
-        );
+        }
+    );
 }
 
 module.exports = router;

@@ -10,18 +10,27 @@
 ### コマンドから確認
 
 以下のコマンド  
-windowsの場合 git on bash から確認可能  
-apikeyは置き換える
+windowsの場合 git on bash から確認可能(ダウンロードした画像のあるディレクトリ上で右クリック → git on bash)  
+apikey,ファイル名は置き換える
 
 ```
-curl -X POST -u "apikey:p-xxxxxxxxxxxxxxxxxxxxxxxx" --form "images_file=@apple.png" "https://gateway.watsonplatform.net/visual-recognition/api/v3/classify?version=2018-03-19"
+curl -X POST -u "apikey:p-9OY_llWlSXVZ8GRUXPy4AOjv65TWoP_5u5FV11pD7t" --form "images_file=@apple.png" "https://gateway.watsonplatform.net/visual-recognition/api/v3/classify?version=2018-03-19"
 ```
 
 ### サンプルの実行確認
 
 route/vr.js
-の接続情報を書き換える。  
+の31行目接続情報を書き換える。  
+実運用ではprocess.env.VCAP_SERVICES などを利用する。
 サンプルコードについてプロダクトに組み込む場合接続情報は環境変数などを利用する。
+
+依存関係の解決
+
+```
+npm install
+```
+
+ローカルサーバの起動
 
 ```
 npm start
@@ -39,7 +48,6 @@ http://localhost:3000/vr
 低いと誤判定率が上がる
 高いと認識率が下がる
 
-
 作り込めばカスタム学習した画像認識APIを利用して
 スマートフォンのカメラから撮影した画像を判定する
 といった活用が可能
@@ -47,7 +55,7 @@ http://localhost:3000/vr
 ## AssistantをNodeRedからNode.jsから移行してみる
 
 route/bot.js
-の接続情報を書き換える
+の接続情報を書き換える  
 
 ローカルサーバを再起動して
 http://localhost:3000/bot
@@ -56,7 +64,23 @@ http://localhost:3000/bot
 バージョンが異なる場合一部書き換えが必要？
 https://console.bluemix.net/apidocs/assistant-v2
 
+iam_apikeyを使用する。
+
+```
+    var assistant = new watson.AssistantV1({
+        iam_apikey: '{apikey}',
+        version: '2018-09-20'
+    });
+```
+
 ## Text to Speech をドキュメントを参照しながら実装する
+
+https://console.bluemix.net/apidocs/text-to-speech
+からWebAPIの機能ととサンプルコードが参照できる。
+
+```
+node .\day5_WatsonWithNodejs\tts.js
+```
 
 # 参考情報
 
@@ -91,10 +115,12 @@ Webフレームワーク
 - [React](https://reactjs.org/)
 
 ## その他
-Webpack
-TypeScript
-Single Page Application
-CI/CD
-Docker
-kubernetes
+Webpack  
+TypeScript  
+Single Page Application  
+CI/CD  
+Docker  
+kubernetes  
+サーバレスアーキテクチャ  
+マイクロサービスアーキテクチャ  
 etc...

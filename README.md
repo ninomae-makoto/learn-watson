@@ -11,7 +11,6 @@
 ## day5 Node.js からWatsonを使用する
 
 1. Hello WatsonWithNodejs (Visual Recognition)
-3. Rest APIを使用してみる
 4. ドキュメントの参照方法を知る
-5. Node.jsからAssistantを使用する（時間があれば）
+5. Node.jsからTextToSpeechを使用する
 6. 次にやるべきこと
