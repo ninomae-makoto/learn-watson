@@ -28,7 +28,7 @@ router.post('/', function (req, res, next) {
       var fs = require('fs');
 
       // ここにapikeyを追加 実際はソースに直書きせず別で管理しないといけない
-      var apikey = "p-9OY_llWlSXVZ8GRUXPy4AOjv65TWoP_5u5FV11pD7t"
+      var apikey = "apikey"
       var visualRecognition = new VisualRecognitionV3({
         version: '2018-03-19',
         iam_apikey: apikey

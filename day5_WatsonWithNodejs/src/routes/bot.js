@@ -30,7 +30,7 @@ function callAssistant(question, context, onDone) {
     
     var assistant = new AssistantV1({
         username: '6dc420bb-2ae1-411b-83f2-3f62dabfcf4b',
-        password: 'K5nkYvCjQAfR',
+        password: 'czcxczcxz',
         url: 'https://gateway.watsonplatform.net/assistant/api/',
         version: '2018-02-16'
         });
